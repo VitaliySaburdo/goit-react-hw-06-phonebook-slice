@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { Form, Input, Label, Button } from './ContactForm.styled';
-import { addContact } from 'redux/actions';
+import { addContact } from '../../redux/contactsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { getContacts } from '../../redux/selectors';
+import { getContacts } from 'redux/selectors';
 
 export function ContactForm() {
   const [name, setName] = useState('');
@@ -22,7 +22,6 @@ export function ContactForm() {
     } else {
       dispatch(addContact(name, number));
     }
-
     resetForm();
   };
 
